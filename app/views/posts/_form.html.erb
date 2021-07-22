@@ -1,0 +1,19 @@
+<%= bootstrap_form_for(@post) do |f| %>
+<br/>
+<div>
+
+<%= f.text_field :title %>
+</div>
+<br/>
+
+<div>
+
+<%=  f.text_area :body%>
+</div>
+<br/>
+<div>
+<%= f.submit%>
+</div>
+<%end %>
+
+
