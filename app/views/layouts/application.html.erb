@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/application">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -33,7 +37,16 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/posts/new">NEW <span class="sr-only">(current)</span></a></li>
         <li><%= link_to "About", about_path%></li>
-        
+    
+    
+      <% if user_signed_in? %>
+          <li id="welcomeuser"><%= "Hi, #{current_user.email}" %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <% end %>
+   
       </ul>
       
      
@@ -42,10 +55,8 @@
 </nav>
 
 <div class="container">
+
  <%= yield %>
-
-
-
  </div>
 
 

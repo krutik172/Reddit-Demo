@@ -1,52 +1,53 @@
+
+
 <h1 class="title">
-<%= @post.title %>
+ 
+    <%= @post.title %>
+
 </h1>
 
 <p class="date">
-Submitted <%= time_ago_in_words(@post.created_at) %> ago
-</p>
+    
+    Submitted <%= time_ago_in_words(@post.created_at) %> ago
 
-<p class="body">
-<%=@post.body%>
 </p>
+<%if user_signed_in?%>
+    <div class="edit-link">
 
-  <br/>
- <%= link_to "EDIT",edit_post_path(@post) %>
- <br/>
- <%= link_to "DELETE",post_path(@post),
+        <%= link_to "EDIT",edit_post_path(@post) %>
+
+    </div>
+<br/>
+
+    <div class="delete-link">
+
+         <%= link_to "DELETE",post_path(@post),
             method: :delete,
-            data:{confirm:"ARE YOU SURE?"}%> 
-  <br/>
- <a href="/posts/new">
-  <button type="button" class="btn btn-primary">NEW POST</button>
-  </a>
+            data:{confirm:"ARE YOU SURE?"}%>
 
-<h2 class="text-center">COMMENTS</h2>
-<%@post.comments.each do |p|%>
-<p>
-<strong>Name:</strong>
-<%= p.commentor %></p>
-<p>
-<strong>Comment:</strong>
-<%= p.body %></p>
-
- <%=link_to "Delete Comment", [p.post, p],
-  method: :delete,
-  data: { confirm: 'Are you sure?' }%>
+    </div> 
 <%end%>
-<h2>Add a comment:</h2>
+<br/>
+<p class="body">
 
-<%= form_with model: [ @post, @post.comments.build ] do |form| %>
-  <p >
-    <%= form.label :Name %><br>
-    <%= form.text_field :commentor %>
-  </p>
-  <p>
-    <%= form.label :Comment %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+    <%=@post.body%>
+
+</p>
+
+<br/>
+
+
+<% if user_signed_in? %>
+<div class="newbutton">
+
+  <a href="/posts/new">
+
+      <button type="button" class="btn btn-primary">NEW POST</button>
+      
+  </a>
+</div>
 <% end %>
+  <%= render "comments/commentsdisplay",comment: @comment%>
+
+  <%= render "comments/commentform",comment: @comment%>
 

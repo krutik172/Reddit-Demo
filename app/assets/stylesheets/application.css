@@ -16,3 +16,43 @@
  /*
  *= require rails_bootstrap_forms
  */
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.commenter input[type="text"]{
+    width: 1000px;
+    height: 30px;
+}
+
+.txtarea{
+    width: 1000px;
+    height: 30px;
+}
+
+.delete-link{
+    margin-left: 55px;
+    margin-top: -40px;
+}
+
+/*
+.newbutton{
+    margin-left: 517px;
+    padding-bottom: 25px;
+}
+*/
+#welcomeuser{
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.field input[type="email"]{
+    width: 1000px;
+    height: 30px;
+}
+
+.field input[type="password"]{
+    width: 1000px;
+    height: 30px;
+}
