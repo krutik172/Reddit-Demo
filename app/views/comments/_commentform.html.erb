@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+<h3>Add a comment:</h3>
+
+    <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+    <div class="commenter">
+        <p>
+            <%= form.label :Name %><br>
+            <%= form.text_field :commentor %>
+        </p>
+   
+             <%= form.label :Comment %><br>
+            <%= form.text_area :body, size: "143x3" %>
+    
+
+     </div>
+     <br/>
+            <%= form.submit %>
+    
+<% end %>
+<% end %>

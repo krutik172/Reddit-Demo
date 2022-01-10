@@ -1,0 +1,20 @@
+<h3><%= @post.comments.count %> COMMENTS</h3>
+    <%@post.comments.each do |p|%>
+
+        <p>
+            <strong>Name:</strong>
+            <%= p.commentor %>
+        </p>
+
+        <p>
+            <strong>Comment:</strong>
+            <%= p.body %>
+        </p>
+
+        <% if user_signed_in? %>
+            <%=link_to "Delete Comment", [p.post, p],
+            method: :delete,
+            data: { confirm: 'Are you sure?' }%>
+        <% end %> 
+
+    <% end %>

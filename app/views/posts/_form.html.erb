@@ -1,4 +1,17 @@
 <%= bootstrap_form_for(@post) do |f| %>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+<div class="alert alert-danger">
+The form contains <%= pluralize(@post.errors.count, "error") %>.
+</div>
+<ul>
+<% @post.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
 <br/>
 <div>
 
@@ -11,8 +24,12 @@
 <%=  f.text_area :body%>
 </div>
 <br/>
-<div>
+
+<br/>
+
+
 <%= f.submit%>
+
 </div>
 <%end %>
 

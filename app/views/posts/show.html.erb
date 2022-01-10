@@ -1,20 +1,18 @@
 
 
-<h1 class="title">
+<h1 class="display-1 text-center">
  
     <%= @post.title %>
 
 </h1>
 
-<p class="date">
-    
+<p class="date text-center">
     Submitted <%= time_ago_in_words(@post.created_at) %> ago
 
 </p>
 <%if user_signed_in?%>
     <div class="edit-link">
-
-        <%= link_to "EDIT",edit_post_path(@post) %>
+        <%= link_to('EDIT',{:action => 'edit'}) %>
 
     </div>
 <br/>
@@ -27,6 +25,7 @@
 
     </div> 
 <%end%>
+
 <br/>
 <p class="body">
 

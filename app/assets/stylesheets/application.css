@@ -18,11 +18,12 @@
  */
 body{
     font-family: 'Open Sans', sans-serif;
+    /* background-color: #ccc6c6; */
 }
 
 .commenter input[type="text"]{
-    width: 1000px;
-    height: 30px;
+    width: 1159px;
+    height: 34px;
 }
 
 .txtarea{
@@ -31,28 +32,36 @@ body{
 }
 
 .delete-link{
-    margin-left: 55px;
+    margin-left: 600px;
     margin-top: -40px;
 }
 
-/*
-.newbutton{
-    margin-left: 517px;
-    padding-bottom: 25px;
+.edit-link a{
+    margin-left: 500px;
+
 }
-*/
+
+.postbutton {
+    margin-left: 461px;
+    padding-bottom: 26px;
+    margin-top: 39px;
+
+}
+
+
+
 #welcomeuser{
     margin-top: 15px;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.field input[type="email"]{
+/* .field input[type="email"]{
     width: 1000px;
     height: 30px;
-}
+} */
 
-.field input[type="password"]{
+/* .field input[type="password"]{
     width: 1000px;
     height: 30px;
-}
+} */
